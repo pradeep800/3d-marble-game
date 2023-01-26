@@ -4,7 +4,7 @@ export default create(
   subscribeWithSelector((set) => {
     return {
       blocksSeed: 0,
-      blocksCount: 3,
+      blocksCount: 30,
       /**
        * Phase
        */

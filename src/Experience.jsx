@@ -1,9 +1,9 @@
 import { OrbitControls } from "@react-three/drei";
 import { Debug, Physics } from "@react-three/rapier";
-import Level from "../Components/Level";
-import Lights from "../Components/Lights";
-import Player from "../Components/Player";
-import useGame from "../lib/useGame";
+import Level from "./Components/Level";
+import Lights from "./Components/Lights";
+import Player from "./Components/Player";
+import useGame from "./lib/useGame";
 
 export default function Experience() {
   const blockCount = useGame((state) => state.blocksCount);
