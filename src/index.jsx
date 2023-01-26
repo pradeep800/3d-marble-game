@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
 import * as THREE from "three";
 import { KeyboardControls } from "@react-three/drei";
-import Interface from "../Components/interface";
+import Interface from "../Components/Interface";
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 
 root.render(
