@@ -17,7 +17,7 @@ export default create(
             return { phase: "playing", startTime: Date.now() };
           return {};
         });
-      },
+      }, //h
       end: () => {
         set((state) => {
           if (state.phase === "playing")
