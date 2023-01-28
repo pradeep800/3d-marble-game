@@ -2,6 +2,18 @@ import { useKeyboardControls } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { addEffect } from "@react-three/fiber";
 import useGame from "../lib/useGame";
+import {
+  ArrowDownKeyDown,
+  ArrowDownKeyUp,
+  ArrowLeftKeyDown,
+  ArrowLeftKeyUp,
+  ArrowRightKeyDown,
+  ArrowRightKeyUp,
+  ArrowUpKeyDown,
+  ArrowUpKeyUp,
+  SpaceKeyDown,
+  SpaceKeyUp,
+} from "../lib/EventSimulator";
 
 export default function Interface() {
   const restart = useGame((state) => state.restart);
@@ -39,16 +51,41 @@ export default function Interface() {
 
       {/* Controls */}
       <div className="controls">
-        <div className="raw">
+        <div
+          onPointerUp={ArrowUpKeyUp}
+          onPointerDown={ArrowUpKeyDown}
+          onPointerLeave={ArrowUpKeyUp}
+          className="raw"
+        >
           <div className={`key ${forward ? "active" : ""}`}></div>
         </div>
         <div className="raw">
-          <div className={`key ${leftward ? "active" : ""}`}></div>
-          <div className={`key ${backward ? "active" : ""}`}></div>
-          <div className={`key ${rightward ? "active" : ""}`}></div>
+          <div
+            onPointerUp={ArrowLeftKeyUp}
+            onPointerDown={ArrowLeftKeyDown}
+            onPointerLeave={ArrowLeftKeyUp}
+            className={`key ${leftward ? "active" : ""}`}
+          ></div>
+          <div
+            onPointerUp={ArrowDownKeyUp}
+            onPointerDown={ArrowDownKeyDown}
+            onPointerLeave={ArrowDownKeyUp}
+            className={`key ${backward ? "active" : ""}`}
+          ></div>
+          <div
+            onPointerUp={ArrowRightKeyUp}
+            onPointerDown={ArrowRightKeyDown}
+            onPointerLeave={ArrowRightKeyUp}
+            className={`key ${rightward ? "active" : ""}`}
+          ></div>
         </div>
         <div className="raw">
-          <div className={`key ${jump ? "active" : ""} large`}></div>
+          <div
+            onPointerUp={SpaceKeyUp}
+            onPointerDown={SpaceKeyDown}
+            onPointerLeave={SpaceKeyUp}
+            className={`key ${jump ? "active" : ""} large`}
+          ></div>
         </div>
       </div>
     </div>

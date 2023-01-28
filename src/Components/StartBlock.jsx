@@ -13,7 +13,7 @@ export default function StartBlock({ position = [0, 0, 0] }) {
       ></mesh>
       <Float>
         <Text
-          font="./babas-neue-v9-latin-regular.woff"
+          font="./bebas-neue-v9-latin-regular.woff"
           maxWidth={0.25}
           lineHeight={0.75}
           textAlign="right"

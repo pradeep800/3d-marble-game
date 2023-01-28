@@ -11,7 +11,7 @@ export default function EndBlock({ position = [0, 0, 0] }) {
   return (
     <group position={position}>
       <Text
-        font="./babas-neue-v9-latin-regular.woff"
+        font="./bebas-neue-v9-latin-regular.woff"
         scale={0.8}
         position={[0, 2.25, 2]}
       >
