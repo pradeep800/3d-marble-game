@@ -21,7 +21,7 @@ export default function StartBlock({ position = [0, 0, 0] }) {
           rotation-y={-0.25}
           scale={0.6}
         >
-          Marble Race
+          Marble Run
           <meshBasicMaterial toneMapped={false} />
         </Text>
       </Float>
