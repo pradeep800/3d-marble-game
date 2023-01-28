@@ -4,7 +4,7 @@ import { boxGeometry } from "../lib/Geomatry";
 import { floor1Material } from "../lib/Materials";
 import { Text } from "@react-three/drei";
 export default function EndBlock({ position = [0, 0, 0] }) {
-  const { scene } = useGLTF("./hamburger.glb");
+  const { scene } = useGLTF("./trophy.glb");
   scene.children.forEach((mesh) => {
     mesh.castShadow = true;
   });
@@ -13,7 +13,15 @@ export default function EndBlock({ position = [0, 0, 0] }) {
       <Text
         font="./bebas-neue-v9-latin-regular.woff"
         scale={0.8}
-        position={[0, 2.25, 2]}
+        position={[0, 0.35, 2]}
+      >
+        TROPHY
+        <meshBasicMaterial toneMapped={false} />
+      </Text>
+      <Text
+        font="./bebas-neue-v9-latin-regular.woff"
+        scale={0.8}
+        position={[0, 2.35, 2]}
       >
         FINISH
         <meshBasicMaterial toneMapped={false} />
@@ -28,7 +36,7 @@ export default function EndBlock({ position = [0, 0, 0] }) {
       <RigidBody
         type="fixed"
         colliders="hull"
-        position={[0, 0.25, 0]}
+        position={[0, 0.2, 0]}
         restitution={0}
         friction={0}
       >
