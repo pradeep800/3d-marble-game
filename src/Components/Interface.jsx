@@ -27,7 +27,7 @@ export default function Interface() {
     let highScoreTime = localStorage.getItem("highScore");
     if (highScoreTime) {
       highScoreElement.current.textContent =
-        "HighScore : " + (elapsedTime / 1000).toFixed(2);
+        "HighScore : " + (highScoreTime / 1000).toFixed(2);
     }
     const unsub = addEffect(() => {
       let elapsedTime = 0;
