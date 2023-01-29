@@ -26,8 +26,8 @@ export default function Interface() {
   useEffect(() => {
     let highScoreTime = localStorage.getItem("highScore");
     if (highScoreTime) {
-      console.log("helo");
-      highScoreElement.current.textContent = "HighScore : " + highScoreTime;
+      highScoreElement.current.textContent =
+        "HighScore : " + (elapsedTime / 1000).toFixed(2);
     }
     const unsub = addEffect(() => {
       let elapsedTime = 0;
@@ -36,7 +36,6 @@ export default function Interface() {
       else if (state.phase === "ended") {
         elapsedTime = state.endTime - state.startTime;
         if (highScoreTime > elapsedTime || !highScoreTime) {
-          console.log("local");
           localStorage.setItem("highScore", elapsedTime);
           highScoreElement.current.textContent =
             "HighScore : " + (elapsedTime / 1000).toFixed(2);
