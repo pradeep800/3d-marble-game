@@ -15,7 +15,7 @@ export default function EndBlock({ position = [0, 0, 0] }) {
         scale={0.8}
         position={[0, 0.35, 2]}
       >
-        TROPHY
+        trophy
         <meshBasicMaterial toneMapped={false} />
       </Text>
       <Text

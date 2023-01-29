@@ -74,3 +74,9 @@ body,
 .controls .key.active {
   background: #ffffff99;
 }
+.highScore {
+  color: blue;
+  position: fixed;
+  right: 20px;
+  top: 30px;
+}

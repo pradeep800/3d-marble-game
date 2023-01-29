@@ -18,26 +18,44 @@ import {
 export default function Interface() {
   const restart = useGame((state) => state.restart);
   const phase = useGame((state) => state.phase);
-
+  const highScoreElement = useRef();
   const time = useRef();
   const { forward, backward, leftward, rightward, jump } = useKeyboardControls(
     (state) => state
   );
   useEffect(() => {
+    let highScoreTime = localStorage.getItem("highScore");
+    if (highScoreTime) {
+      console.log("helo");
+      highScoreElement.current.textContent = "HighScore : " + highScoreTime;
+    }
     const unsub = addEffect(() => {
       let elapsedTime = 0;
       const state = useGame.getState();
       if (state.phase === "playing") elapsedTime = Date.now() - state.startTime;
-      else if (state.phase === "ended")
+      else if (state.phase === "ended") {
         elapsedTime = state.endTime - state.startTime;
+        if (highScoreTime > elapsedTime || !highScoreTime) {
+          console.log("local");
+          localStorage.setItem("highScore", elapsedTime);
+          highScoreElement.current.textContent =
+            "HighScore : " + (elapsedTime / 1000).toFixed(2);
+        }
+      }
+
       elapsedTime /= 1000;
       elapsedTime = elapsedTime.toFixed(2);
+
       if (time.current) time.current.textContent = elapsedTime;
     });
     return unsub;
   }, []);
   return (
     <div className="interface">
+      {/*High Score*/}
+      <div ref={highScoreElement} className="highScore">
+        HighScore : NA
+      </div>
       {/*Time */}
       <div ref={time} className="time">
         0.00
