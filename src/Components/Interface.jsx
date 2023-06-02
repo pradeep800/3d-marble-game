@@ -34,8 +34,10 @@ export default function Interface() {
       const state = useGame.getState();
       if (state.phase === "playing") elapsedTime = Date.now() - state.startTime;
       else if (state.phase === "ended") {
+        const score = parseInt(localStorage.getItem("highScore"));
+
         elapsedTime = state.endTime - state.startTime;
-        if (highScoreTime > elapsedTime || !highScoreTime) {
+        if (score > elapsedTime || isNaN(score)) {
           localStorage.setItem("highScore", elapsedTime);
           highScoreElement.current.textContent =
             "HighScore : " + (elapsedTime / 1000).toFixed(2);
